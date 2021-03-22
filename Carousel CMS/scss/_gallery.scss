@@ -1,0 +1,123 @@
+.gallery {
+    width: 100%;
+    @media only screen and (min-width: $md) {
+        padding-right: 50px;
+        padding-left: 50px;
+    }
+    &--left {
+        @media only screen and (min-width: $lg) {
+            padding-right: 50px;
+            padding-left: 0;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+        @media only screen and (min-width: $xl) {
+            padding-right: 80px;
+            max-width: 880px;
+        }
+    }
+    &--right {
+        @media only screen and (min-width: $lg) {
+            padding-right: 0;
+            padding-left: 50px;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+        @media only screen and (min-width: $xl) {
+            padding-left: 80px;
+            max-width: 880px;
+        }
+    }
+    &__image {
+        position: relative;
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        &__img {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        &__btns {
+            display: flex;
+            flex-direction: row;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100px;
+            @media only screen and (min-width: $md) {
+                right: -50px;
+            }
+            &--reverse {
+                @media only screen and (min-width: $lg) {
+                    left: -50px;
+                }
+            }
+            &__item {
+                cursor: pointer;
+                display: block;
+                width: 50px;
+                height: 50px;
+                background-color: $main-color-darker;
+                transition: all 0.25s;
+                border: 0;
+                outline: 0;
+                &:hover {
+                    background-color: $main-color;
+                }
+                &--prev {
+                    background-image: url($arrow-left);
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    visibility: hidden;
+                }
+                &--next {
+                    background-image: url($arrow-right);
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    visibility: hidden;
+                }
+            }
+        }
+    }
+    &__thumbs {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        max-width: 800px;
+        margin: 0 auto;
+        &__item {
+            cursor: pointer;
+            display: block;
+            width: 92px;
+            height: 72px;
+            background-color: $grey_dark;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            &:hover .gallery__thumbs__item__color {
+                opacity: 0;
+            }
+            &--curr {
+                width: 120px;
+                height: 90px;
+                & .gallery__thumbs__item__color {
+                    opacity: 0;
+                }
+            }
+            &__color {
+                display: block;
+                width: 100%;
+                height: 100%;
+                background-color: $main-color;
+                opacity: 0.4;
+                transition: all 0.25s;
+            }
+        }
+    }
+}
